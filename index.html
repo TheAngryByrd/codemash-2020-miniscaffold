@@ -1,0 +1,529 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MiniScaffold</title>
+    <meta name="description" content="MiniScaffold">
+    <meta name="author" content="Jimmy Byrd">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="//code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="//code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/style.css" />
+    <link type="text/css" rel="stylesheet" href="fsharp.formatting/styles/deedle.css" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
+    <script src="fsharp.formatting/styles/tips.js" type="text/javascript"></script>
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/fsreveal.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script language="javascript" type="text/javascript">
+        function init()
+        {
+            websocket = new WebSocket("ws://"+window.location.host+"/websocket");
+            websocket.onmessage = function(evt) { location.reload(); };
+        }
+        window.addEventListener("load", init, false);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section >
+<section >
+<h3>Project Zero or Removing barriers for creating OSS libraries</h3>
+<p>Jimmy Byrd</p>
+<p>Codemash 2020</p>
+</section>
+<section >
+<h3>Who am I?</h3>
+<ul>
+<li>Team Lead at Binary Defense</li>
+<li>Maintainer of OSS projects</li>
+<li>Contributor to OSS projects</li>
+</ul>
+</section>
+<section >
+<h3>Why are we here?</h3>
+</section>
+<section >
+<ul>
+<li>
+Act 1
+<ul>
+<li>Go through the concepts of creating your first OSS library</li>
+<li>Learning lessons along the way</li>
+</ul>
+</li>
+<li>
+Act 2
+<ul>
+<li>Cover MiniScaffold</li>
+</ul>
+</li>
+<li>
+Act 3
+<ul>
+<li>Create your own scaffold for your ecosystem</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Learning Lessons</h3>
+<p>✅ = Something to add to a checklist for later</p>
+</section>
+</section>
+<section >
+<section >
+<h3>You have an idea</h3>
+<p><img src="images/good_idea.jpeg" alt="Good idea" /></p>
+<aside class="notes">
+    Great idea for a library.  It's going to change the world.
+</aside>
+</section>
+<section >
+<h3>Create your repository</h3>
+<p><img src="images/new_repo.png" alt="New Repository" /></p>
+</section>
+<section >
+<h3>Get to coding</h3>
+<p><img src="images/get_to_coding.gif" alt="Typing furiously" /></p>
+</section>
+<section >
+<h3>Problem solved</h3>
+<p><img src="images/mission-accomplished.gif" alt="Mission accomplished" /></p>
+</section>
+<section >
+<h3>Shipping</h3>
+<p><img src="images/cast_spell.gif" alt="Cast spell" /></p>
+</section>
+<section >
+<h3>Project is finished...</h3>
+<p><img src="images/the_end_maybe.gif" alt="The end" /></p>
+</section>
+</section>
+<section >
+<section >
+<h3>Your first issue</h3>
+<p>A new feature idea</p>
+</section>
+<section >
+<h3>Strangely worded, needs a lot of feedback about the use case</h3>
+<p>✅ Create an issue template for features</p>
+</section>
+<section >
+<h3>How do I build this thing again?</h3>
+<p>✅ I should create a script</p>
+</section>
+<section >
+<h3>How do I publish again?</h3>
+<p>✅ I should add the publishing to this script</p>
+</section>
+</section>
+<section >
+<h3>✅Checklist</h3>
+<ul>
+<li>Create an issue template for features</li>
+<li>
+Have a build script
+<ul>
+<li>Have a publish step</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<section >
+<h3>Issue #2</h3>
+<p>That new feature broke something for someone</p>
+</section>
+<section >
+<h3>Time to write tests</h3>
+<p>✅ I have to choose a testing library</p>
+<p>✅ I should add this to the build script</p>
+</section>
+</section>
+<section >
+<section >
+<h3>Issue #3</h3>
+<p>Why does this library exist? How do I get started?</p>
+</section>
+<section >
+<h3>Write a <code>README.md</code></h3>
+<p>✅ Explain why this library exists</p>
+<p>✅ Explain how to get started</p>
+</section>
+</section>
+<section >
+<section >
+<h3>Issue #4</h3>
+<p>Needs a license</p>
+</section>
+<section >
+<h3>Go through the license choosing process</h3>
+<p>✅ <a href="https://choosealicense.com/">https://choosealicense.com/</a></p>
+</section>
+</section>
+<section >
+<section >
+<h3>Issue #5</h3>
+<p>I'd like to contribute but how?</p>
+</section>
+<section >
+<h3>Write up a <code>CONTRIBUTING.md</code> guide</h3>
+<p>✅ <a href="https://mozillascience.github.io/working-open-workshop/contributing/">https://mozillascience.github.io/working-open-workshop/contributing/</a></p>
+<ul>
+<li>Prerequisites for contributing</li>
+<li>How to build/test</li>
+<li>How to submit a PR</li>
+</ul>
+</section>
+</section>
+<section >
+<h3>✅ Checklist</h3>
+<ul>
+<li>Create an issue template for features</li>
+<li>
+Have a build script
+<ul>
+<li>Have a test step</li>
+<li>Have a publish step</li>
+</ul>
+</li>
+<li>Choose a testing library</li>
+<li>Create a README.md</li>
+<li>Choose a License</li>
+<li>Create a CONTRIBUTING.md</li>
+</ul>
+</section>
+<section >
+<section >
+<h3>Your first contributor's Pull Request (PR)</h3>
+<p>Someone just added a new feature</p>
+</section>
+<section >
+<h3>It looks like it works</h3>
+<p>✅ I have to build it locally, maybe I should create a build server</p>
+</section>
+<section >
+<h3>I have nitpicks about the formatting during review</h3>
+<p>✅ I should choose a standard formatter for my language</p>
+</section>
+<section >
+<h3>Weird IDE files were added in the commit</h3>
+<p>✅ I should have a comprehensive <code>.gitignore</code> file</p>
+</section>
+</section>
+<section >
+<h3>✅ Checklist</h3>
+<ul>
+<li>Create an issue template for features/bug reports/pull requests</li>
+<li>
+Have a build script
+<ul>
+<li>Have a test step</li>
+<li>Have a publish step</li>
+<li>Have a format step</li>
+</ul>
+</li>
+<li>Choose a testing library</li>
+<li>Create a README.md</li>
+<li>Choose a License</li>
+<li>Create a CONTRIBUTING.md</li>
+<li>Have Build Server/CI setup</li>
+<li>Have an .editorconfig</li>
+<li>Have a .gitignore</li>
+</ul>
+</section>
+<section >
+<h3>The Issues, they don't stop coming</h3>
+<ul>
+<li>✅ API Documentation</li>
+<li>✅ Release Notes/Changelog</li>
+<li>✅ GitHub releases</li>
+<li>✅ Standardizing project structure</li>
+<li>✅ Ecosystem specific features</li>
+</ul>
+</section>
+<section >
+<section >
+<h3>✅ Checklist</h3>
+<ul>
+<li>
+Have a standard codebase structure
+<ul>
+<li>ISSUE/PULL_REQUEST templates</li>
+<li>src folder</li>
+<li>tests folder</li>
+<li>docs folder (or DOCUMENTATION.md)</li>
+<li>dist folder</li>
+<li>CHANGELOG/RELEASE_NOTES</li>
+<li>CONTRIBUTING</li>
+<li>
+README
+<ul>
+<li>Description</li>
+<li>
+Answers
+<ul>
+<li>Who (maintainers)</li>
+<li>What (this project does)</li>
+<li>Why (this project exists)</li>
+<li>How (Basics of getting started, may defer to docs)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LICENSE</li>
+<li>CI files</li>
+<li>.editorconfig</li>
+<li>.gitignore</li>
+<li>dependencies</li>
+<li>
+Build script
+<ul>
+<li>Clean distributables/temp folders</li>
+<li>Restore packages</li>
+<li>Compile (if necessary)</li>
+<li>Run tests</li>
+<li>Create distributables (npm/nuget)</li>
+<li>Create a release commit</li>
+<li>Create a git tag</li>
+<li>Create a GitHub release</li>
+<li>Push distributables to dependency manager host</li>
+<li>Format code</li>
+<li>
+Anything else specific to your language/platform
+<ul>
+<li>Sourcelink (.NET)</li>
+<li>GenerateAssemblyInfo (.NET)</li>
+</ul>
+</li>
+<li>Generate Docs (if necessary)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section >
+<h3>Big list</h3>
+<p><img src="images/bruce_list.gif" alt="Checklist" /></p>
+</section>
+</section>
+<section >
+<section >
+<h3>Enter <a href="https://github.com/TheAngryByrd/MiniScaffold">MiniScaffold</a></h3>
+</section>
+<section >
+<h3>Whats in the box?</h3>
+<ul>
+<li>Standard project structure for dotnet projects</li>
+<li><a href="https://fake.build/">FAKE</a> for build automation</li>
+<li><a href="https://fsprojects.github.io/Paket/">Paket</a> for dependency management</li>
+<li><a href="https://github.com/haf/expecto">Expecto</a> for automated testing</li>
+<li><a href="https://github.com/SteveGilham/altcover">AltCover</a> for code coverage</li>
+<li>
+<a href="https://github.com/fsprojects/fantomas">Fantomas</a> for code formatting
+<ul>
+<li>Also a good .editorconfig</li>
+</ul>
+</li>
+<li><a href="https://github.com/dotnet/sourcelink">SourceLink</a> for debugging NuGet packages</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a> plugin recommendations</li>
+<li>.gitignore</li>
+<li><a href="https://fsprojects.github.io/FSharp.Formatting/">FSharp.Formatting</a> for Documentation Generation</li>
+<li><a href="https://travis-ci.org/">TravisCI</a>/<a href="https://www.appveyor.com/">Appveyor</a>/<a href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions">GitHub Actions</a> for build servers</li>
+<li>
+Metadata starting point
+<ul>
+<li>README</li>
+<li>RELEASE_NOTES</li>
+<li>LICENSE</li>
+</ul>
+</li>
+<li>Simple Release Workflow</li>
+</ul>
+</section>
+<section >
+<h3>Prerequisites</h3>
+<ul>
+<li>Install <a href="https://git-scm.com/download">git</a></li>
+<li>Install <a href="https://dotnet.microsoft.com/download">.Net core</a></li>
+<li>If on macOS or Linux, install <a href="https://www.mono-project.com/download/stable/">Mono</a></li>
+<li>If on Windows <a href="https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed">ensure</a> you have at least .NET Full Framework 4.6.1 installed</li>
+<li>Recommended IDE is <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/get-started/install-fsharp#install-f-with-visual-studio-code">VSCode with Ionide</a></li>
+<li>Create a <a href="https://www.nuget.org/">NuGet account</a></li>
+<li>Create a <a href="https://github.com/">GitHub account</a></li>
+<li>Create a <a href="https://travis-ci.org">TravisCI account</a></li>
+<li>Create an <a href="https://www.appveyor.com/">Appveyor account</a></li>
+</ul>
+</section>
+<section >
+<h3>Installing MiniScaffold</h3>
+<p>Install the <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates">dotnet template</a> from NuGet:</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="bash">dotnet new -i "MiniScaffold::*"
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>Use the template</h3>
+<p>Then use the template to create your own library.  Replace <code>MyCoolNewLib</code> with your own library name and <code>MyGithubUsername</code> with your own GitHub name. If you have trouble picking a library name then <a href="https://colinmorris.github.io/rbm/repos/">generate one</a>.</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="bash">dotnet new mini-scaffold -n MyCoolNewLib --githubUsername MyGithubUsername
+cd MyCoolNewLib
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>Running your first build</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="bash">$ ./build.sh
+
+... lots of output
+
+---------------------------------------------------------------------
+Build Time Report
+---------------------------------------------------------------------
+Target                   Duration
+------                   --------
+Clean                    00:00:00.2265025
+DotnetRestore            00:00:15.0755658
+DotnetBuild              00:00:14.9643742
+DotnetTest               00:00:06.2235803
+GenerateCoverageReport   00:00:00.8268912
+DotnetPack               00:00:14.4001064
+Total:                   00:00:51.8780989
+Status:                  Ok
+---------------------------------------------------------------------
+</code></pre></td></tr></table>
+</section>
+<section >
+<h3>Making a Release (prereqs)</h3>
+<ul>
+<li><a href="https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Setup git upstream</a></li>
+<li><a href="https://fsprojects.github.io/Paket/paket-config.html#Adding-a-NuGet-API-key">Setup NuGet apikey</a></li>
+<li><a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">Setup GitHub apikey</a></li>
+<li>Add to <code>RELEASE_NOTES.md</code></li>
+</ul>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">### <span class="n">0.2</span><span class="o">.</span><span class="n">0</span> <span class="o">-</span> <span class="n">2017</span><span class="o">-</span><span class="n">04</span><span class="o">-</span><span class="n">20</span>
+<span class="o">-</span> <span class="i">FEATURE</span><span class="o">:</span> <span class="i">Does</span> <span class="i">cool</span> <span class="i">stuff!</span>
+<span class="o">-</span> <span class="i">BUGFIX</span><span class="o">:</span> <span class="i">Fixes</span> <span class="i">that</span> <span class="i">silly</span> <span class="i">oversight</span>
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
+<h3>Making a Release</h3>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip"><code lang="bash">$ ./build.sh Release
+</code></pre></td></tr></table>
+</section>
+</section>
+<section >
+<h1>Demo</h1>
+</section>
+<section >
+<h3>Next steps</h3>
+<ul>
+<li>
+Use dotnet?
+<ul>
+<li>Try out MiniScaffold</li>
+</ul>
+</li>
+<li>
+Use another language/framework?
+<ul>
+<li>use my checklist as a way to craft your own!</li>
+</ul>
+</li>
+</ul>
+</section>
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Add the nohighlight class and data-noescape attribute to code elements that have already been formatted by FSharp.Formatting
+        $('pre.highlighted code').addClass('nohighlight').attr('data-noescape', '');
+
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: 'plugin/notes/notes.js', async: true, condition: function () { return !!document.body.classList; } }
+            ]
+        });
+
+    </script>
+    
+    <script src="js/custom.js" type="text/javascript"></script>
+</body>
+</html>
+
