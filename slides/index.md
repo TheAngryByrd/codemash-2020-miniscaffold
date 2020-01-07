@@ -393,7 +393,7 @@ Then use the template to create your own library.  Replace `MyCoolNewLib` with y
 
 ***
 
-### Next steps
+### Next steps?
 
 - Use dotnet? 
     - Try out MiniScaffold

@@ -1,31 +1,11 @@
-[![Issue Stats](http://issuestats.com/github/fsprojects/FsReveal/badge/issue)](http://issuestats.com/github/fsprojects/FsReveal)
-[![Issue Stats](http://issuestats.com/github/fsprojects/FsReveal/badge/pr)](http://issuestats.com/github/fsprojects/FsReveal)
+# Project Zero or Removing barriers for creating OSS libraries
 
-# FsReveal [![NuGet Status](http://img.shields.io/nuget/v/FsReveal.svg?style=flat)](https://www.nuget.org/packages/FsReveal/)
 
-FsReveal allows you to write beautiful slides in [Markdown](http://daringfireball.net/projects/markdown/syntax)
-and brings F# to the [reveal.js][revealjs] web presentation framework.
+- Presented by: Jimmy Byrd
+- Time: Thursday, Jan. 09, 9:15 AM - 10:15 AM
+- Room: Salon D
+- Tags: .NET, Functional Programming, Other
+- Level: Introductory and overview
 
-## Features
+You have a brilliant idea for an open source library. You start this new repository thinking of how bright the future is with your code being use by others. Then reality then sets in. You realize to make all this possible you have to do a lot of non-feature work. You need a project structure, a test framework, a build system, dependency management, continuous integration, deployment, and other tooling. All this is getting in the way of writing a great library you know will change the world! What if I said you can do all this and more? This talk will cover [MiniScaffold](https://github.com/TheAngryByrd/MiniScaffold), a dotnet template for getting your project up and running with little effort so you can create the libraries of your dreams.
 
-- Write your slides in [Markdown](http://daringfireball.net/projects/markdown/syntax) or .fsx files
-- Automatically updates the browser in edit mode on every save
-- Syntax highlighting for most programming languages including C#, F# and LaTeX
-- Speaker notes; Shows the current slide, next slide, elapsed time and current time
-- Built in themes
-- Horizontal and vertical slides
-- Built in slide transitions using CSS 3D transforms
-- Slide overview
-- Works on mobile browsers. Swipe your way through the presentation.
-
-[Examples](http://fsprojects.github.io/FsReveal/index.html#Examples) and a [Getting started guide](http://fsprojects.github.io/FsReveal/getting-started.html) can be found in the docs.
-
-[revealjs]: https://github.com/hakimel/reveal.js/ "reveal.js | HTML presentations made easy"
-
-### Maintainer(s)
-
-- [@kimsk](https://github.com/kimsk)
-- [@forki](https://github.com/forki)
-- [@troykershaw](https://github.com/troykershaw)
-
-The default maintainer account for projects under "fsprojects" is [@fsprojectsgit](https://github.com/fsprojectsgit) - F# Community Project Incubation Space (repo management)
