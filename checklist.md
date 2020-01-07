@@ -3,21 +3,23 @@
 ## checklist
 
 - [ ] Have a standard codebase structure
-    - [ ] ISSUE/PULL_REQUEST templates
-    - [ ] src folder
-    - [ ] tests folder
-    - [ ] docs folder (or DOCUMENTATION.md)
-    - [ ] dist folder
-    - [ ] CHANGELOG/RELEASE_NOTES
-    - [ ] CONTRIBUTING
-    - [ ] README
-        - [ ] Description 
-        - [ ] Answers
-            - [ ] Who (maintainers)
-            - [ ] What (this project does)
-            - [ ] Why (this project exists)
-            - [ ] How (Basics of getting started, may defer to docs)
-    - [ ] LICENSE
+    - [ ] Project Metadata
+        - [ ] ISSUE/PULL_REQUEST templates
+        - [ ] CHANGELOG/RELEASE_NOTES
+        - [ ] CONTRIBUTING
+        - [ ] README
+            - [ ] Description 
+            - [ ] Answers
+                - [ ] Who (maintainers)
+                - [ ] What (this project does)
+                - [ ] Why (this project exists)
+                - [ ] Where/How (Basics of getting started)
+        - [ ] LICENSE
+    - [ ] Project structure
+        - [ ] src folder
+        - [ ] tests folder
+        - [ ] docs folder (or DOCUMENTATION.md)
+        - [ ] dist folder
     - [ ] CI files
     - [ ] .editorconfig
     - [ ] .gitignore
@@ -33,7 +35,8 @@
         - [ ] Create a GitHub release
         - [ ] Push distributables to dependency manager host
         - [ ] Format code
-        - [ ] Anything else specific to your language/platform
-            - [ ] Sourcelink (.NET)
-            - [ ] GenerateAssemblyInfo (.NET)
         - [ ] Generate Docs (if necessary)
+    - [ ] Anything else specific to your language/platform
+        - [ ] Sourcelink (.NET)
+        - [ ] GenerateAssemblyInfo (.NET)
+        - [ ] IDE configuration
